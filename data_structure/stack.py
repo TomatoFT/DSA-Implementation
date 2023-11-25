@@ -23,21 +23,3 @@ class Stack:
     def size(self):
         return len(self.items)
 
-# # Example usage of the stack:
-# if __name__ == "__main__":
-#     stack = Stack()
-
-#     # Push elements onto the stack
-#     stack.push(1)
-#     stack.push(2)
-#     stack.push(3)
-
-#     # Print the top element (without removing it)
-#     print("Top element:", stack.peek())
-
-#     # Pop elements from the stack
-#     while not stack.is_empty():
-#         print("Popped:", stack.pop())
-
-#     # Attempting to pop from an empty stack will raise an exception
-#     # print(stack.pop())  # Uncomment to see the exception

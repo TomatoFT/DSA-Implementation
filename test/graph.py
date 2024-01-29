@@ -1,12 +1,11 @@
 import sys
+
 sys.path.append("./")
 
 
-from data_structure.graph.graph import Node
-from algorithms.graph_search.DFS import dfs
-
 from algorithms.graph_search.BFS import bfs
-
+from algorithms.graph_search.DFS import dfs
+from data_structure.graph.graph import Node
 
 if __name__ == "__main__":
     graph = Node([("Ha Noi", "Bac Ninh"), 

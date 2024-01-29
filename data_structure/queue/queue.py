@@ -9,10 +9,6 @@ class Queue:
         """Check if the queue is empty."""
         return len(self.queue) == 0
 
-    def display(self) -> None:
-        """Display the current items in the queue."""
-        print('The current items in the queue are: ' + str(self.queue))
-
     def push(self, item) -> None:
         """
         Add an item to the end of the queue.
@@ -25,12 +21,10 @@ class Queue:
         """
         if item is not None:
             self.queue.append(item)
-        else:
-            raise IndexError('Item is not valid')
         
-        self.display()
+        return self
         
-    def pop(self) -> None:
+    def dequeue(self):
         """
         Remove the first item from the queue.
 
@@ -38,8 +32,6 @@ class Queue:
         - IndexError: If the queue is empty.
         """
         if not self.is_empty():
+            value = self.queue[0]
             self.queue = self.queue[1:]
-        else:
-            raise IndexError('Queue is empty')
-
-        self.display()
+            return value

@@ -1,18 +1,24 @@
 from data_structure.queue.queue import Queue
 
-def bfs(graph, start):
-    queue = Queue().push(start)
-    visited = set()
-    paths = []
+class BFS:
+    def __init__(self, graph):
+        self.graph = graph
+        self.queue = Queue()
 
-    while queue.queue:
-        current_vertex = queue.dequeue()
-        if current_vertex not in visited:
+    def __call__(self, start):
+        self.queue.enqueue(start)
+        visited = []
+
+        while not self.queue.is_empty():
+            current_vertex = self.queue.dequeue()
             print(current_vertex)
-            queue.push(current_vertex)
-            visited.add(current_vertex)
-            for neighbor in graph.graph_dict.get(current_vertex, []):
-                paths.append(neighbor)
-                queue.push(neighbor)
+            if current_vertex not in visited:
+                visited.append(current_vertex)
+                for neighbor in self.graph.graph_dict.get(current_vertex, []):
+                    self.queue.enqueue(neighbor)
+        self.display_result(visited)
 
-    return paths
+    @staticmethod
+    def display_result(visited):
+        print("BFS traversal:")
+        print("Visited nodes:", visited)

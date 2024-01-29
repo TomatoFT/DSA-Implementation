@@ -1,12 +1,21 @@
 from data_structure.stack.stack import Stack
 
-def dfs(graph, start, visited=None):
-    if visited is None:
-        visited = Stack()
+class DFS:
+    def __init__(self, graph):
+        self.graph = graph
+        self.stack = Stack()
 
-    if start not in visited.items:
-        print(start)
-        visited.push(start)
+    def __call__(self, start):
+        self.dfs_recursive(start)
+        self.display_result()
 
-        for neighbor in graph.graph_dict.get(start, []):
-            dfs(graph, neighbor, visited)
+    def dfs_recursive(self, start):
+        if start not in self.stack.items:
+            self.stack.push(start)
+
+            for neighbor in self.graph.graph_dict.get(start, []):
+                self.dfs_recursive(neighbor)
+
+    def display_result(self):
+        print("DFS traversal:")
+        print("Visited nodes:", self.stack.items)

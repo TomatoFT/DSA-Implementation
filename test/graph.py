@@ -3,8 +3,8 @@ import sys
 sys.path.append("./")
 
 
-from algorithms.graph_search.BFS import bfs
-from algorithms.graph_search.DFS import dfs
+from algorithms.graph_search.BFS import BFS
+from algorithms.graph_search.DFS import DFS
 from data_structure.graph.graph import Node
 
 if __name__ == "__main__":
@@ -25,8 +25,5 @@ if __name__ == "__main__":
         for path in all_paths:
             print(" -> ".join(path))
 
-    print("DFS traversal:")
-    dfs(graph, "Ha Noi")
-
-    print("BFS traversal:")
-    bfs(graph, "Ha Noi")
+    DFS(graph)("Ha Noi")
+    BFS(graph)("Ha Noi")

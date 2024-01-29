@@ -9,7 +9,7 @@ class Queue:
         """Check if the queue is empty."""
         return len(self.queue) == 0
 
-    def push(self, item) -> None:
+    def enqueue(self, item) -> None:
         """
         Add an item to the end of the queue.
 
@@ -21,9 +21,7 @@ class Queue:
         """
         if item is not None:
             self.queue.append(item)
-        
-        return self
-        
+                
     def dequeue(self):
         """
         Remove the first item from the queue.
